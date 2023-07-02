@@ -10,9 +10,9 @@ class PredictPipeline:
 
     def predict(self, features):
         try:
-            trained_model = "trained_model/"
-            tokenizer = AutoTokenizer.from_pretrained(trained_model)
-            summarizer = pipeline("summarization", model=trained_model, tokenizer=tokenizer)
+            tmodel = "trained_model/"
+            tokenizer = AutoTokenizer.from_pretrained(tmodel)
+            summarizer = pipeline("summarization", model=tmodel, tokenizer=tokenizer)
 
             review_truncated = features[:1024]
             result = summarizer(review_truncated)
