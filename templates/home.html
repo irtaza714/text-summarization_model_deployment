@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #FFFFFF;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+            font-size: 20px; /* Increase the font-size value as needed */
+        }
+
+        .form-group textarea {
+            width: 95%;
+            height: 150px;
+            padding: 8px;
+            border: 1px solid #FFFFFF;
+            border-radius: 4px;
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #FFFFFF;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .results {
+            margin-top: 20px; /* Increase the margin-bottom value to create more space */
+            margin-bottom: 200px; /* Adjust the margin-bottom value as needed */
+            text-align: justify;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Text Summarizer</h1>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <div class="form-group">
+                <label for="text">Text</label>
+                <textarea id="text" name="text" rows="5" placeholder="Enter the text to be summarized here" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Summarize" required />
+            </div>
+        </form>
+        <div class="results">
+            <p>{{ results }}</p>
+        </div>
+    </div>
+</body>
+
+</html>

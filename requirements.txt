@@ -1,0 +1,18 @@
+numpy==1.23.5
+pandas
+scikit-learn
+pickle-mixin
+imblearn
+Flask
+rouge_score
+simpletransformers
+protobuf==3.20.0
+datasets
+evaluate
+torch
+accelerate
+tqdm
+nltk
+jupyter_core
+nbformat
+# -e .
