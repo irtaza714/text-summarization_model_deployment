@@ -10,11 +10,13 @@ class PredictPipeline:
 
     def predict(self, features):
         try:
-            model_checkpoint = "model/"
+            model_path = "model/pytorch_model.bin"
 
-            model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint)
+            tokenizer_path = "model/tokenizer.json"
 
-            tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
+            model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
+
+            tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
 
             summarizer = pipeline("summarization", model=model, tokenizer=tokenizer)
 
