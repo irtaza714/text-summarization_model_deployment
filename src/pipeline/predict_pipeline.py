@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 import pandas as pd
-from transformers import pipeline, AutoTokenizer
+from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer
 from src.exception import CustomException
 
 class PredictPipeline:
@@ -10,9 +10,13 @@ class PredictPipeline:
 
     def predict(self, features):
         try:
-            modell = "model/"
-            tokenizer = AutoTokenizer.from_pretrained(modell)
-            summarizer = pipeline("summarization", model=modell, tokenizer=tokenizer)
+            model_checkpoint = "model/"
+
+            model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint)
+
+            tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
+
+            summarizer = pipeline("summarization", model=model, tokenizer=tokenizer)
 
             review_truncated = features[:1024]
             result = summarizer(review_truncated)
