@@ -71,7 +71,7 @@ class ModelTrainer:
                  return preds, labels
             
             model_name = "text_summarization_model"
-            output_dir = "trained_model/"
+            output_dir = "model/"
 
             progress_bar = tqdm(range(num_training_steps))
             
